@@ -1,0 +1,57 @@
+# OSINT Tool Configuration
+
+app:
+  name: "OSINT Investigator"
+  version: "1.0.0"
+  author: "Security Research Team"
+
+settings:
+  timeout: 30
+  max_retries: 3
+  rate_limit: 60
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+modules:
+  email:
+    enabled: true
+    tools:
+      - holehe
+      - epieos
+      - hibp
+      - hunter
+      - emailrep
+
+  phone:
+    enabled: true
+    tools:
+      - phoneinfoga
+      - numverify
+
+  username:
+    enabled: true
+    tools:
+      - sherlock
+      - maigret
+      - whatsmyname
+      - socialscan
+
+  breach:
+    enabled: true
+    tools:
+      - hibp
+      - dehashed
+      - leakcheck
+
+output:
+  directory: "./output"
+  formats:
+    - json
+    - html
+  timestamp: true
+  compress: false
+
+logging:
+  level: INFO
+  file: "./logs/osint.log"
+  max_size: 10485760
+  backup_count: 5
